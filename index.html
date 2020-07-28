@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>UPP 465-Hankins</title>
+<link rel="stylesheet" href="style.css"> 
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+
+   
+  <script src="js/leaflet-providers.js"></script>
+
+</head>
+
+
+<body>
+	<img src="RLT.jpg" width="500" height="450"> 
+
+<div class = "title">
+<h1>South Chicago and Rail Service</h1>
+<h3>A look into two proposed rail projects on the south side of Chicago.</h3>
+
+
+</div>
+
+<!--Shortly explains the project and map-->
+<div class = "Rail projects">
+	<p> The proposed Red Line Extension(RLE) and Metra Electric(ME) improvements pose an issue for regional leaders: which one is the best use of tax dollars for the residents of the south side of Chicago? This map showcases what the RLE would look like and also what the area looks like currently with the ME line. </p>
+	<p> For more information about the Red Line Extension, click <a href="https://www.transitchicago.com/redext/" target="_blank">here</a></p> 
+	<p> For more information about the Metra Electric improvement project, click <a href="https://www.modernmetraelectric.org/improvements.html" target="_blank">here</a></p> 
+	
+</div>
+
+
+<div id= "map"></div>
+
+	<script>
+		
+var map= L.map('map').setView([41.692, -87.632],12);
+
+
+var Stamen_TonerLite = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
+	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	subdomains: 'abcd',
+	minZoom: 0,
+	maxZoom: 20,
+	ext: 'png'
+}).addTo(map);
+
+
+
+var myIcon = L.icon({
+    iconUrl: 'ct.jpg',
+    iconSize: [25, 25],
+});
+
+
+var marker = L.marker([41.707, -87.633],{
+	icon:myIcon
+}).addTo(map).bindPopup("103rd Street Station");
+
+var marker = L.marker([41.692, -87.632],{
+	icon:myIcon
+}).addTo(map).bindPopup("111th Sreet Station");
+
+var marker = L.marker([41.682, -87.620],{
+	icon:myIcon
+}).addTo(map).bindPopup("Michigan Ave Station");
+
+var marker = L.marker([41.660, -87.594],{
+	icon:myIcon
+}).addTo(map).bindPopup("130th Sreet Station");
+
+var polygon = L.polygon([
+    [41.722, -87.585],
+    [41.660, -87.582],
+    [41.661, -87.662],
+    [41.720, -87.667],
+], {
+  color: 'yellow', 
+  fillColor: 'blue',
+  fillOpacity: .12,
+}
+).addTo(map).bindPopup("Study Area");
+
+var circle = L.circle([41.660, -87.594],{
+	color: 'green',
+  fillColor: '#green',
+  fillOpacity: 0.5,
+  radius: 900,
+}).addTo(map).bindPopup("half-mile radius");
+
+// var circle = L.circle([41.722, -87.585],{
+// 	color:'green',
+// 	fillColor; ''#f03'',
+// 	fillOpacity: 0.5,
+// 	radius:900,
+// }).addTo(map).bindPopup("half-mile radius from station");
+
+var line = L.polyline([
+    [41.707, -87.633],
+    [41.692, -87.632],
+    [41.682, -87.620],
+    [41.660, -87.594],
+]).addTo(map).bindPopup("Proposed Red Line Extension alignment");
+
+
+
+</script>
+
+<!-- </div> -->
+
+</body>
+
+</html>
