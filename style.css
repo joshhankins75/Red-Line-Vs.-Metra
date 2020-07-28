@@ -1,0 +1,30 @@
+ body {
+	text-align: center;
+	background-color: blue;color: black;
+	position: relative;
+	font-family: 'IM Fell English SC', serif;
+	height: 300px;
+	width: 600px;
+	margin: auto;
+	
+
+} 
+
+.intro h1 {
+	font-family: 'IM Fell English SC', serif;
+	text-align: center;
+	font-size: 30pt;
+} 
+
+.intro h3 {
+	font-family: 'IM Fell English SC', serif;
+	text-align: center;
+	font-size: 17pt;
+}
+
+#map {
+	width: 600px;
+	height: 600px;
+	margin: auto;
+}
+
